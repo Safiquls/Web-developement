@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+          <li>
+            <form class="search-form">
+              <input type="text" placeholder="Search">
+              <button type="submit">Go</button>
+            </form>
+          </li>
+        </ul>
+      </nav>
+      <style>
+      nav {
+        background-color: #333;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+      }
+      
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+      
+      nav li {
+        margin: 0 10px;
+      }
+      
+      nav a {
+        display: block;
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0 10px;
+        line-height: 50px;
+        transition: 0.3s ease;
+      }
+      
+      nav a:hover {
+        background-color: #fff;
+        color: #333;
+      }
+      
+      .search-form {
+        display: flex;
+
+        margin: 10px;
+      }
+      
+      .search-form input[type="text"] {
+        padding: 5px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+        width: 200px;
+      }
+      
+      .search-form button[type="submit"] {
+        padding: 5px 10px;
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+      }
+      
+      .search-form button[type="submit"]:hover {
+        background-color: #0062cc;
+      }
+    </style>
+    <script>
+        const form = document.querySelector('.search-form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const input = this.querySelector('input[type="text"]');
+  const query = input.value.trim();
+  if (query) {
+    window.location.href = `https://www.google.com/search?q=${query}`;
+  }
+});
+    </script>
+
+    <!-- slider -->
+    <div class="slider-container">
+      <div class="slider">
+        <img src="web/a.jpg" alt="image 1">
+        <img src="web/Untitled-2 copy.jpg" alt="Image 2">
+        <img src="web/11.jpg" alt="Image 3">
+      </div>
+    </div>
+<style>
+  .slider-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slider img {
+  width: 100%;
+  height: auto;
+}
+
+</style>
+<script>
+  const slider = document.querySelector(".slider");
+const images = document.querySelectorAll(".slider img");
+
+let currentIndex = 0;
+const slideInterval = setInterval(nextSlide, 3000);
+
+function nextSlide() {
+  currentIndex++;
+  if (currentIndex >= images.length) {
+    currentIndex = 0;
+  }
+  slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+</script>
+</body>
+</html>
